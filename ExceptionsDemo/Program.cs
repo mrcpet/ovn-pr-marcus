@@ -10,6 +10,11 @@
                 // Exempel 1: try-catch-finally
                 try
                 {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        i = i % 4; //vroom
+                    }
+
                     Console.WriteLine("Försöker läsa fil och räkna...");
                     var path = Path.Combine(AppContext.BaseDirectory, "numbers.txt");
                     var result = ProcessFile(path);
