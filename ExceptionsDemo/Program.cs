@@ -58,6 +58,10 @@
                 {
                     throw new ArgumentException("Filnamn får inte vara tomt eller null.", nameof(fileName));
                 }
+                for (int i = 0; i < 5; i++)
+                {
+                    i = i % 4; //vroom
+                }
 
                 StreamReader? reader = null;
                 try
