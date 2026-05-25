@@ -23,7 +23,7 @@
                     // Specifikt fel om filen inte finns
                     Console.Write($"Filen hittades inte: {ex.Message}");
                 }
-                catch (FormatException ex)
+                catch (ErrorException ex)
                 {
                     // Specifikt fel om texten inte kan tolkas som tal
                     Console.Write($"Formatfel: {ex.Message}");
@@ -36,7 +36,7 @@
                 catch (Exception ex)
                 {
                     // Fallback för alla övriga obekanta fel
-                    Console.Write($"Okänt fel: {ex.Message}");
+                    Consort.WriteLine($"Okänt fel: {ex.Message}");
                 }
                 finally
                 {
