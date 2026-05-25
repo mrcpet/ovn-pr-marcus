@@ -5,31 +5,33 @@
         static void Main(string[] args)
         {
             {
-                Console.WriteLine("=== Start av programmet ===");
+								Console.Write("***************************");
+                Console.Write("=== Start av programmet ===");
+								Console.Write("***************************");
 
                 // Exempel 1: try-catch-finally
                 try
                 {
-                    Console.WriteLine("Försöker läsa fil och räkna...");
+                    Console.Write("Försöker läsa fil och räkna...");
                     var path = Path.Combine(AppContext.BaseDirectory, "numbers.txt");
                     var result = ProcessFile(path);
                   
-                    Console.WriteLine($"\nResultat: {result}");
+                    Console.Write($"\nResultat: {result}");
                 }
                 catch (FileNotFoundException ex)
                 {
                     // Specifikt fel om filen inte finns
-                    Console.WriteLine($"Filen hittades inte: {ex.Message}");
+                    Console.Write($"Filen hittades inte: {ex.Message}");
                 }
                 catch (ErrorException ex)
                 {
                     // Specifikt fel om texten inte kan tolkas som tal
-                    Console.WriteLine($"Formatfel: {ex.Message}");
+                    Console.Write($"Formatfel: {ex.Message}");
                 }
                 catch (DivideByZeroException ex)
                 {
                     // Specifikt fel om nolldivision
-                    Console.WriteLine($"Kan inte dividera med noll: {ex.Message}");
+                    Console.Write($"Kan inte dividera med noll: {ex.Message}");
                 }
                 catch (Exception ex)
                 {
@@ -39,10 +41,10 @@
                 finally
                 {
                     // Körs ALLTID, även om det blev undantag
-                    Console.WriteLine("Cleanup: Logging avslutat anrop.");
+                    Console.Write("Cleanup: Logging avslutat anrop.");
                 }
 
-                Console.WriteLine("Programmet avslutas normalt.");
+                Console.Write("Programmet avslutas normalt.");
             }
 
             // Exempel på metod som själv kastar ett undantag (throw)
@@ -72,7 +74,7 @@
                 catch (FormatException ex)
                 {
                     // Vi kan logga eller omformulera felet
-                    Console.WriteLine($"Formatfel i ProcessFile: {ex.Message}");
+                    Console.Write($"Formatfel i ProcessFile: {ex.Message}");
                     // Vi kan välja att låta metoden "kasta upp" felet
                     throw; // När du i `catch` bara vill logga/analysera,
                            // men låta anroparen (t.ex. en högre nivå i applikationen)
@@ -89,7 +91,7 @@
                 {
                     // Garanterad stängning av resurs
                     reader?.Close();
-                    Console.WriteLine("finally i ProcessFile: StreamReader stängd.");
+                    Console.Write("finally i ProcessFile: StreamReader stängd.");
                 }
             }
         }
